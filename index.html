@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>himanshu · builds with AI</title>
+<meta name="description" content="Himanshu — GenAI engineer at Writesonic. Agent orchestration, MCP servers, products with taste. Vibe coder, reverse engineer, meme connoisseur."/>
+<meta property="og:title" content="himanshu · builds with AI"/>
+<meta property="og:description" content="GenAI engineer. Harness, orchestrate, think deeper. Bring first-hand taste to product."/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌴</text></svg>"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#0b0618;--bg2:#1b0d33;--ink:#f4efff;--mute:#b9a8d9;
+  --pink:#ff6ec7;--purple:#9b5de5;--cyan:#0bd3d3;--orange:#ffa552;
+  --card:rgba(255,255,255,.04);--line:rgba(255,255,255,.1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"Space Grotesk",system-ui,sans-serif;line-height:1.55;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;
+  background:radial-gradient(60% 40% at 20% 0%,rgba(155,93,229,.35),transparent 60%),
+             radial-gradient(50% 40% at 90% 10%,rgba(255,110,199,.28),transparent 60%),
+             radial-gradient(40% 40% at 50% 100%,rgba(11,211,211,.18),transparent 60%),var(--bg)}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.35;
+  background-image:linear-gradient(rgba(255,110,199,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,110,199,.08) 1px,transparent 1px);
+  background-size:48px 48px;mask-image:linear-gradient(to top,rgba(0,0,0,.9),transparent 55%)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-family:"JetBrains Mono",monospace;font-size:14px}
+nav b{color:var(--pink)}
+nav a{color:var(--mute);text-decoration:none;margin-left:18px}
+nav a:hover{color:var(--cyan)}
+.hero{padding:70px 0 50px;min-height:72vh;display:flex;flex-direction:column;justify-content:center}
+.tag{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--cyan);border:1px solid rgba(11,211,211,.4);border-radius:999px;padding:6px 14px;margin-bottom:22px;background:rgba(11,211,211,.06)}
+.tag::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--cyan);margin-right:9px;box-shadow:0 0 12px var(--cyan);animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.3}}
+h1{font-size:clamp(44px,8vw,96px);line-height:.98;letter-spacing:-.03em;font-weight:700}
+h1 .neon{background:linear-gradient(90deg,var(--pink),var(--purple),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 18px rgba(255,110,199,.45))}
+.sub{margin-top:22px;font-size:clamp(17px,2.2vw,22px);color:var(--mute);max-width:640px}
+.sub b{color:var(--ink)}
+.type{font-family:"JetBrains Mono",monospace;color:var(--pink);min-height:1.6em;margin-top:18px;font-size:clamp(14px,1.8vw,18px)}
+.type::after{content:"▍";animation:blink 1s step-end infinite;color:var(--cyan)}
+@keyframes blink{50%{opacity:0}}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{text-decoration:none;font-weight:600;padding:12px 20px;border-radius:12px;border:1px solid var(--line);color:var(--ink);background:var(--card);transition:.2s;display:inline-flex;gap:8px;align-items:center}
+.btn:hover{transform:translateY(-2px);border-color:var(--pink);box-shadow:0 0 24px rgba(255,110,199,.25)}
+.btn.primary{background:linear-gradient(90deg,var(--pink),var(--purple));border:0;color:#120820}
+section{padding:60px 0}
+h2{font-size:clamp(26px,4vw,40px);letter-spacing:-.02em;margin-bottom:8px}
+h2 small{display:block;font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--cyan);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.lead{color:var(--mute);max-width:620px;margin-bottom:34px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:10px;transition:.25s;overflow:hidden}
+.card::before{content:"";position:absolute;inset:-1px;border-radius:18px;padding:1px;background:linear-gradient(135deg,var(--pink),transparent 40%,transparent 60%,var(--cyan));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:.25s}
+.card:hover{transform:translateY(-4px);background:rgba(255,255,255,.06)}
+.card:hover::before{opacity:1}
+.card .emoji{font-size:30px}
+.card h3{font-size:19px}
+.card p{color:var(--mute);font-size:15px;flex:1}
+.meta{display:flex;gap:10px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--cyan)}
+.meta span{background:rgba(11,211,211,.08);border:1px solid rgba(11,211,211,.25);border-radius:999px;padding:3px 10px}
+.meta .star{color:var(--orange);border-color:rgba(255,165,82,.35);background:rgba(255,165,82,.08)}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.pillar{padding:22px;border-radius:18px;border:1px solid var(--line);background:var(--card)}
+.pillar .k{font-family:"JetBrains Mono",monospace;color:var(--pink);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.pillar h3{margin:8px 0 6px;font-size:20px}
+.pillar p{color:var(--mute);font-size:15px}
+.stack{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.chip{font-family:"JetBrains Mono",monospace;font-size:13px;padding:8px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.chip.hot{border-color:rgba(255,110,199,.5);color:var(--pink)}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.link{text-decoration:none;color:var(--ink);border:1px solid var(--line);background:var(--card);border-radius:14px;padding:16px;display:flex;align-items:center;gap:12px;transition:.2s;font-weight:500}
+.link:hover{border-color:var(--cyan);transform:translateY(-2px)}
+.link .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-size:18px;background:rgba(255,255,255,.06)}
+.link small{display:block;color:var(--mute);font-weight:400;font-size:12px;font-family:"JetBrains Mono",monospace}
+.meme{font-family:"JetBrains Mono",monospace;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;color:var(--mute);font-size:14px;white-space:pre-wrap;overflow:auto}
+.meme .c{color:#6b5a8e}.meme .s{color:var(--orange)}.meme .k{color:var(--pink)}
+footer{padding:50px 0 40px;text-align:center;color:var(--mute);font-family:"JetBrains Mono",monospace;font-size:13px;border-top:1px solid var(--line)}
+footer a{color:var(--cyan);text-decoration:none}
+.reveal{opacity:0;transform:translateY(16px);transition:.6s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><span><b>~/</b>himanshu</span><span><a href="#missions">missions</a><a href="#how">how</a><a href="#links">links</a><a href="https://github.com/himanshu007-creator">github ↗</a></span></nav>
+
+<header class="hero">
+  <span class="tag">online · GenAI engineer @ Writesonic</span>
+  <h1>hi, i'm <span class="neon">himanshu</span>.<br/>i build with AI,<br/>and ship with taste.</h1>
+  <p class="sub">I <b>harness</b> models, <b>orchestrate</b> agent systems, and <b>think deeper</b> than the prompt. Then I use the thing myself until it feels right. Taste is the feature.</p>
+  <div class="type" id="type"></div>
+  <div class="cta">
+    <a class="btn primary" href="https://drive.google.com/file/d/11O48hVYst52aRMNvK_5h8SFyNkJJ0E2H/view">📄 Resume</a>
+    <a class="btn" href="https://github.com/himanshu007-creator">🐙 GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/himanshu-here/">💼 LinkedIn</a>
+    <a class="btn" href="https://medium.com/@addyjeridiq">✍️ Medium</a>
+  </div>
+</header>
+
+<section id="how" class="reveal">
+  <h2><small>operating system</small>How I work</h2>
+  <div class="pillars">
+    <div class="pillar"><div class="k">01 · harness</div><h3>Models are power tools</h3><p>Claude, GPT, open weights. Pick the right one, constrain it hard, measure everything.</p></div>
+    <div class="pillar"><div class="k">02 · orchestrate</div><h3>Agents, not prompts</h3><p>Tool use, MCP servers, queues, retries, evals. The system is the product, not the chat box.</p></div>
+    <div class="pillar"><div class="k">03 · think deeper</div><h3>Reverse engineer the greats</h3><p>Free time goes to reading great codebases and vibe coding the ideas back into reality.</p></div>
+    <div class="pillar"><div class="k">04 · taste</div><h3>User first, always</h3><p>I use what I build. If it doesn't feel good in my own hands, it doesn't ship.</p></div>
+  </div>
+</section>
+
+<section id="missions" class="reveal">
+  <h2><small>selected missions</small>Things I've built</h2>
+  <p class="lead">Public, mine, and starred by people who weren't obligated to. Star counts are live from GitHub.</p>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="reveal">
+  <h2><small>loadout</small>Stack</h2>
+  <div class="stack">
+    <span class="chip hot">Claude</span><span class="chip hot">MCP</span><span class="chip hot">Agent orchestration</span><span class="chip hot">LangGraph</span>
+    <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">TypeScript</span><span class="chip">React / Next.js</span><span class="chip">Rust</span>
+    <span class="chip">Postgres + pgvector</span><span class="chip">Redis / Celery</span><span class="chip">Docker</span><span class="chip">AWS / GCP</span><span class="chip">Figma</span>
+  </div>
+</section>
+
+<section class="reveal">
+  <h2><small>off hours</small>Vibe check</h2>
+  <pre class="meme"><span class="c"># ~/.himanshurc</span>
+<span class="k">export</span> HUMOUR=<span class="s">"dry, meme-literate, peer-reviewed"</span>
+<span class="k">export</span> WEEKEND=<span class="s">"vibe code → reverse engineer → repeat"</span>
+<span class="k">export</span> THEME=<span class="s">"vice city neon, 90s synth"</span>
+<span class="k">alias</span> ship=<span class="s">"use it yourself first && git push"</span></pre>
+</section>
+
+<section id="links" class="reveal">
+  <h2><small>find me</small>Links</h2>
+  <div class="links">
+    <a class="link" href="https://github.com/himanshu007-creator"><span class="ic">🐙</span><span>GitHub<small>himanshu007-creator</small></span></a>
+    <a class="link" href="https://www.linkedin.com/in/himanshu-here/"><span class="ic">💼</span><span>LinkedIn<small>himanshu-here</small></span></a>
+    <a class="link" href="https://medium.com/@addyjeridiq"><span class="ic">✍️</span><span>Medium<small>@addyjeridiq</small></span></a>
+    <a class="link" href="https://www.youtube.com/channel/UCWEmm4gTBJxNwuYmRDP7NLQ"><span class="ic">📺</span><span>YouTube<small>videos</small></span></a>
+    <a class="link" href="https://www.twitch.tv/himanshu007creator"><span class="ic">🎮</span><span>Twitch<small>himanshu007creator</small></span></a>
+    <a class="link" href="https://www.instagram.com/himanshu.git"><span class="ic">📸</span><span>Instagram<small>himanshu.git</small></span></a>
+    <a class="link" href="#" onclick="navigator.clipboard.writeText('himanshu007creator');this.querySelector('small').textContent='copied ✓';return false"><span class="ic">💬</span><span>Discord<small>himanshu007creator</small></span></a>
+    <a class="link" href="https://drive.google.com/file/d/11O48hVYst52aRMNvK_5h8SFyNkJJ0E2H/view"><span class="ic">📄</span><span>Resume<small>pdf</small></span></a>
+  </div>
+</section>
+
+<footer>built by hand, no framework, no tracking · <a href="https://github.com/himanshu007-creator/himanshu007-creator.github.io">source</a> · 🌴</footer>
+</div>
+
+<script>
+// ponytail: static project list, live stars from the public GitHub API (60 req/hr unauthenticated is plenty)
+const projects=[
+ {n:"passit",e:"🦀",d:"Pass conversations between AI agents. Local-first MCP server so Claude Code, OpenCode, Cursor and Gemini share one context.",t:["Rust","MCP"],live:null},
+ {n:"sketchetc",e:"🌴",d:"Vice City themed macOS menu bar on SketchyBar. Themes, widgets, clipboard history, aura points, tamper-proof journal.",t:["Shell","macOS"],live:"https://himanshu007-creator.github.io/sketchetc/"},
+ {n:"SFC-foundations",e:"🏛️",d:"Community site that onboarded 100+ open-source contributors through Hacktoberfest and GSSoC.",t:["HTML","community"],live:"https://himanshu007-creator.github.io/SFC-foundations/"},
+ {n:"parchiapp",e:"🩺",d:"Medical record management, because paper prescriptions get lost.",t:["TypeScript"],live:"https://parchiapp.vercel.app"},
+ {n:"GTA-VC",e:"🎨",d:"A VS Code theme that brings back the good old days of Vice City.",t:["VS Code"],live:null},
+ {n:"MEMEBOT",e:"🤖",d:"Fresh dank memes from Reddit. The most important project here.",t:["JavaScript"],live:null},
+ {n:"OpenSource-progammes",e:"📚",d:"Curated resources to get started with open source.",t:["docs"],live:null},
+ {n:"OMRZen",e:"📝",d:"Minimalistic OMR sheet, online.",t:["TypeScript"],live:"https://omrzen.vercel.app"},
+];
+const grid=document.getElementById("grid");
+grid.innerHTML=projects.map(p=>`<a class="card" href="https://github.com/himanshu007-creator/${p.n}">
+  <div class="emoji">${p.e}</div><h3>${p.n}</h3><p>${p.d}</p>
+  <div class="meta"><span class="star" data-repo="${p.n}">★ …</span>${p.t.map(x=>`<span>${x}</span>`).join("")}${p.live?`<span>live ↗</span>`:""}</div></a>`).join("");
+fetch("https://api.github.com/users/himanshu007-creator/repos?per_page=200&type=owner").then(r=>r.json()).then(list=>{
+  const m=Object.fromEntries(list.map(r=>[r.name,r.stargazers_count]));
+  document.querySelectorAll("[data-repo]").forEach(el=>{el.textContent="★ "+(m[el.dataset.repo]??"–")});
+}).catch(()=>document.querySelectorAll("[data-repo]").forEach(el=>el.textContent="★"));
+
+const lines=["orchestrating agents, not just prompting them","building MCP servers in rust for fun","reverse engineering great codebases at 2am","shipping products i'd actually use","memes: peer-reviewed, production-grade"];
+const el=document.getElementById("type");let li=0,ci=0,del=false;
+(function tick(){const s=lines[li];el.textContent=s.slice(0,ci);
+  if(!del&&ci<s.length){ci++;setTimeout(tick,45)}else if(!del){del=true;setTimeout(tick,1600)}
+  else if(ci>0){ci--;setTimeout(tick,22)}else{del=false;li=(li+1)%lines.length;setTimeout(tick,300)}})();
+
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("in")),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(x=>io.observe(x));
+</script>
+</body>
+</html>
